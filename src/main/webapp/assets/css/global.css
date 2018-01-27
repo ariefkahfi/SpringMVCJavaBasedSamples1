@@ -1,0 +1,148 @@
+/*black : #292B2C*/
+/*blue : #0275D8*/
+/*grey : #ECEEEF*/
+
+body{
+    margin :0;
+}
+
+/*right-container-childes styles*/
+.right-container-child-item-container{
+    padding-left : 15px;
+}
+.right-container-child{
+
+}
+
+.right-container-child-a{
+    display: block;
+    text-decoration: none;
+    color : white;
+}
+.right-container-child-a:hover{
+    background-color: white;
+    color :#0275D8;
+}
+/*right-container-childes styles*/
+
+/*card styles*/
+.card{
+    border-radius: 3px;
+    border : 1px solid #DFDFDF;
+    margin : 5px;
+}
+.card-title{
+
+}
+.card-content{
+    padding : 8px;
+}
+/*card styles*/
+
+/*container styles*/
+.container{
+    padding : 5px;
+}
+.left-container-for-jumbotron{
+    padding : 5px;
+    overflow: hidden;
+    display: inline-block;
+    width: 70%;
+}
+.left-container{
+    width : 70%;
+    clear: both;
+    padding : 5px;
+}
+.left-container-content{
+    background-color: #ECEEEF;
+    border-radius: 3px;
+    padding : 5px;
+}
+.left-container-title{
+    border-radius: 3px;
+    padding : 5px;
+    background-color: #ECEEEF;
+}
+.right-container{
+    padding : 5px;
+    float: right;
+    width: 30%;
+}
+.right-container-menu-container{
+    border-top : 1px solid #DFDFDF;
+    border-left: 1px solid #DFDFDF;
+    border-right: 1px solid #DFDFDF;
+}
+
+.right-container-menu-container:first-child{
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+.right-container-menu-container:last-child{
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+.right-container-item{
+    padding : 5px;
+    border-bottom : 1px solid #DFDFDF;
+
+    height: 35px;
+    overflow: hidden;
+    transition: height 500ms;
+    color : #0275D8;
+}
+.right-container-item:hover{
+    color : white;
+
+    height : 80px;
+
+    cursor: pointer;
+    background-color: #0275D8;
+}
+/*container styles*/
+
+*{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.clearfix:after{
+    content: '';
+    clear: both;
+    display: block;
+}
+
+.title{
+    margin: 0;
+}
+
+
+/*jumbotron styles*/
+.jumbotron-title{
+
+}
+.jumbotron-container{
+    background-color: #ECEEEF;
+    border-radius : 3px;
+    padding : 50px 5px 50px 5px;
+}
+.jumbotron-p{
+
+}
+/*jumbotron styles*/
+
+
+/*util styles*/
+.no-margin{
+    margin : 0;
+}
+.floating-left{
+    float: left;
+}
+.util-card-width{
+    width : 31%;
+}
+/*util styles*/

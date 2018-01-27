@@ -1,0 +1,30 @@
+#top-navbar{
+    background-color: #292B2C;
+    color: white;
+    padding: 10px;
+}
+#title-top-navbar{
+    display: inline-block;
+}
+#left-top-navbar-item-container{
+    display: inline-block;
+}
+#left-top-navbar-menu-container{
+    display: inline-block;
+    margin-top :3px;
+    margin-left : 5px;
+}
+.left-top-navbar-item{
+    margin: 10px;
+}
+
+#form-button-top-navbar:hover{
+    background-color: unset;
+    color: unset;
+}
+
+#right-top-navbar-menu-container{
+    float: right;
+    display: inline-block;
+    margin-right: 5px;
+}

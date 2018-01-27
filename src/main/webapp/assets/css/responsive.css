@@ -1,0 +1,85 @@
+@media screen and (max-width : 960px){
+    body{
+        background-color: dodgerblue;
+    }
+}
+
+@media screen and (max-width: 860px){
+    body{
+        background-color: crimson;
+    }
+    .util-card-width{
+
+    }
+}
+
+@media screen and (max-width : 768px){
+    body{
+        background-color: yellowgreen;
+    }
+    .card .floating-left{
+        float: none;
+    }
+    .util-card-width{
+        width: auto;
+    }
+    .left-container-for-jumbotron,.right-container{
+        display: block;
+        float: none;
+        width: 100%;
+    }
+    .left-container{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width : 648px){
+    body{
+        background-color: sienna;
+    }
+    #left-top-navbar-item-container{
+        display: block;
+        margin-bottom : 5px;
+    }
+    .left-top-navbar-item{
+        margin: 5px 0 5px 0;
+        padding : 5px;
+        display: block;
+    }
+    #form-button-top-navbar , #form-input-top-navbar{
+        display: block;
+        width: 100%;
+        margin : 5px 0 5px 0;
+    }
+    #title-top-navbar{
+        display: block;
+        text-align: center;
+
+    }
+    .left-top-navbar-item:hover{
+        background-color: #0275D8;
+        cursor: pointer;
+    }
+    #left-top-navbar-menu-container{
+        display: block;
+    }
+    #right-top-navbar-menu-container{
+        float: none;
+        display: block;
+    }
+}
+
+
+@media screen and (max-width : 500px){
+    body{
+        background-color: dimgray;
+    }
+    .form-row{
+        margin : 8px;
+    }
+    .form-label , .form-input-left{
+        display: block;
+        float: none;
+        width : 100%;
+    }
+}

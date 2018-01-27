@@ -1,0 +1,34 @@
+.form-button{
+    padding : 5px;
+    border : 1px solid #DFDFDF;
+    border-radius: 3px;
+}
+.form-button:hover{
+    color: unset;
+    background-color: unset;
+}
+.form-wrapper{
+
+}
+.form-input{
+    padding :5px;
+    border : 1px solid #DFDFDF;
+    border-radius: 3px;
+}
+.form-row{
+    margin : 5px;
+}
+.form-label{
+    width: 130px;
+    margin-top : 5px;
+    float :left;
+}
+.form-input-left{
+    float: left;
+}
+.form-button-blue{
+    padding : 8px;
+    color : white;
+    border : none;
+    background-color: #0275D8;
+}
