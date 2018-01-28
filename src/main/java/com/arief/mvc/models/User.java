@@ -1,6 +1,7 @@
 package com.arief.mvc.models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -14,7 +15,7 @@ public class User {
     @Column(name = "user_name")
     private String userName;
 
-    @OneToMany(mappedBy = "user",cascade =  {CascadeType.REMOVE})
+    @OneToMany(mappedBy = "user",cascade = {CascadeType.REMOVE})
     private List<Album> albumList;
 
     public String getUserId() {
@@ -47,5 +48,13 @@ public class User {
                 "userId='" + userId + '\'' +
                 ", userName='" + userName + '\'' +
                 '}';
+    }
+
+    public static User createModel(String userId ,String userName){
+        User user = new User();
+        user.setUserId(userId);
+        user.setUserName(userName);
+        user.setAlbumList(new ArrayList<Album>());
+        return user;
     }
 }

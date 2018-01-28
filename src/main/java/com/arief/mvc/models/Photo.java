@@ -62,4 +62,12 @@ public class Photo {
                 ", photoUrl='" + photoUrl + '\'' +
                 '}';
     }
+
+    public static Photo createPhoto(String photoName,String photoUrl,Album a){
+        Photo p = new Photo();
+        p.setPhotoName(photoName);
+        p.setPhotoUrl(photoUrl);
+        p.setAlbum(a);
+        return p;
+    }
 }

@@ -1,3 +1,5 @@
+<%@ page import="com.arief.mvc.models.User" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -46,12 +48,21 @@
                             <div class="form-row clearfix">
                                 <label for="album_user_id" class="form-label">Album's User</label>
                                 <select name="album_user_id" id="album_user_id" class="form-input-left">
-
+                                    <%
+                                        List<User> userList = (List<User>)request.getAttribute("listUser");
+                                    %>
+                                    <%
+                                        for (User u : userList){
+                                    %>
+                                            <option value="<%=u.getUserId()%>"><%=u.getUserName()%></option>
+                                    <%
+                                        }
+                                    %>
                                 </select>
                             </div>
 
                             <div class="form-row clearfix">
-                                <input type="submit" value="Submit Data" class="form-button form-button-blue"/>
+                                <input type="submit" value="Submit Data" onclick="return submitAlbum()" class="form-button form-button-blue"/>
                             </div>
 
                         </form>
@@ -63,4 +74,6 @@
     <%--form-album's content--%>
 
 </body>
+    <script src="${pageContext.servletContext.contextPath}/resources/js/global.js"></script>
+    <script src="${pageContext.servletContext.contextPath}/resources/js/form-album.js"></script>
 </html>

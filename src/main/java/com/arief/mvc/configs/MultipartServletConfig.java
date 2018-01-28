@@ -1,4 +1,9 @@
 package com.arief.mvc.configs;
 
-public class MultipartServletConfig {
+import javax.servlet.MultipartConfigElement;
+
+public class MultipartServletConfig extends MultipartConfigElement{
+    public MultipartServletConfig(String location) {
+        super(location);
+    }
 }

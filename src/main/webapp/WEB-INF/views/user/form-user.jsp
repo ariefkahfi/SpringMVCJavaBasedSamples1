@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: arief
-  Date: 28/01/18
-  Time: 0:04
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -29,6 +22,9 @@
                         This is an example to show the potential of an offcanvas layout pattern in Bootstrap.
                         Try some responsive-range viewport sizes to see it in action.
                     </p>
+                    <p class="no-margin">
+                        ${msg}
+                    </p>
                 </div>
             </div>
 
@@ -38,7 +34,7 @@
                 <h2 class="left-container-title">Ini Halaman Form User</h2>
                 <div class="left-container-content">
                     <div class="form-wrapper">
-                        <form action="${pageContext.servletContext.contextPath}/user/form-user" method="POST">
+                        <form action="${pageContext.servletContext.contextPath}/user/form-user" method="POST" >
 
                             <div class="form-row clearfix">
                                 <label for="user_id" class="form-label">User ID</label>
@@ -51,7 +47,7 @@
                             </div>
 
                             <div class="form-row clearfix">
-                                <input type="submit" value="Submit Data" class="form-button form-button-blue"/>
+                                <input type="submit" value="Submit Data" onclick="return submitForm()"  class="form-button form-button-blue"/>
                             </div>
 
                         </form>
@@ -61,4 +57,6 @@
 
         </div>
 </body>
+    <script src="${pageContext.servletContext.contextPath}/resources/js/global.js" ></script>
+    <script src="${pageContext.servletContext.contextPath}/resources/js/form-user.js" ></script>
 </html>

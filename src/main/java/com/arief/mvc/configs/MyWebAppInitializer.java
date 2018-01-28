@@ -21,8 +21,8 @@ public class MyWebAppInitializer extends AbstractAnnotationConfigDispatcherServl
 
     @Override
     protected void customizeRegistration(ServletRegistration.Dynamic registration) {
-        MultipartConfigElement configElement =
-                new MultipartConfigElement("/usr/local/apache/uploads/");
+        MultipartServletConfig configElement
+                = new MultipartServletConfig("/usr/local/apache/uploads/");
         registration.setMultipartConfig(configElement);
     }
 

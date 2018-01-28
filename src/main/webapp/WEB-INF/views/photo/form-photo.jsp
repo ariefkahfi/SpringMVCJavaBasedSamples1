@@ -1,10 +1,5 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: arief
-  Date: 27/01/18
-  Time: 23:56
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="com.arief.mvc.models.Album" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -38,7 +33,7 @@
                 <h2 class="left-container-title">Ini Halaman Form Photo</h2>
                 <div class="left-container-content">
                     <div class="form-wrapper">
-                        <form action="${pageContext.servletContext.contextPath}/photo/form-photo" method="POST">
+                        <form action="${pageContext.servletContext.contextPath}/photo/form-photo" enctype="multipart/form-data" method="POST">
 
                             <div class="form-row clearfix">
                                 <label for="photo_name" class="form-label">Photo Name</label>
@@ -46,9 +41,23 @@
                             </div>
 
                             <div class="form-row clearfix">
+                                <label for="photo_url" class="form-label">Choose file to upload ....</label>
+                                <input type="file" name="photo_url" class="form-input-left form-input" id="photo_url"/>
+                            </div>
+
+                            <div class="form-row clearfix">
                                 <label for="album_photo_id" class="form-label">Album's Photo</label>
                                 <select name="album_photo_id" id="album_photo_id" class="form-input-left">
-
+                                        <%
+                                            List<Album> albumList = (List<Album>)request.getAttribute("listAlbum");
+                                        %>
+                                        <%
+                                            for(Album a : albumList){
+                                        %>
+                                                <option value="<%=a.getAlbumId()%>"><%=a.getAlbumName()%></option>
+                                        <%
+                                            }
+                                        %>
                                 </select>
                             </div>
 
@@ -63,4 +72,6 @@
 
         </div>
 </body>
+    <script src="${pageContext.servletContext.contextPath}/resources/js/global.js"></script>
+    <script src="${pageContext.servletContext.contextPath}/resources/js/form-photo.js"></script>
 </html>

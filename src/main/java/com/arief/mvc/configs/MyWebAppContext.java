@@ -19,7 +19,7 @@ public class MyWebAppContext implements WebMvcConfigurer {
     }
 
     @Bean
-    public MultipartResolver multipartResolver(){
+    public CommonsMultipartResolver multipartResolver(){
         CommonsMultipartResolver multipartResolver
                 =new CommonsMultipartResolver();
         multipartResolver.setMaxUploadSizePerFile(50000000);
@@ -27,11 +27,11 @@ public class MyWebAppContext implements WebMvcConfigurer {
     }
 
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry
-                .addResourceHandler("/resources/**")
-                .addResourceLocations("/assets/");
+//        registry
+//                .addResourceHandler("/resources/**")
+//                .addResourceLocations("/assets/");
         registry
                 .addResourceHandler("/images/**")
-                .addResourceLocations("file:/usr/local/apache/uploads");
+                .addResourceLocations("file:/usr/local/apache/uploads/");
     }
 }

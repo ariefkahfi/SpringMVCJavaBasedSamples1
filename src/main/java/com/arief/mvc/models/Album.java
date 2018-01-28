@@ -1,6 +1,7 @@
 package com.arief.mvc.models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -45,11 +46,27 @@ public class Album {
         this.user = user;
     }
 
+    public List<Photo> getPhotoList() {
+        return photoList;
+    }
+
+    public void setPhotoList(List<Photo> photoList) {
+        this.photoList = photoList;
+    }
+
     @Override
     public String toString() {
         return "Album{" +
                 "albumId='" + albumId + '\'' +
                 ", albumName='" + albumName + '\'' +
                 '}';
+    }
+    public  static Album createAlbum(String albumId,String albumName ,User u){
+        Album a = new Album();
+        a.setAlbumId(albumId);
+        a.setAlbumName(albumName);
+        a.setUser(u);
+        a.setPhotoList(new ArrayList<Photo>());
+        return a;
     }
 }
