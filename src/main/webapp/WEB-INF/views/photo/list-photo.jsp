@@ -1,3 +1,6 @@
+<%@ page import="com.arief.mvc.models.Album" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.arief.mvc.models.Photo" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -29,17 +32,65 @@
 
             <div class="left-container clearfix">
                 <h2 class="left-container-title">List Photo</h2>
+
                 <div class="left-container-content">
                     <div class="form-wrapper">
                         <form action="${pageContext.servletContext.contextPath}/photo/list-photo/album">
                             <div class="form-row clearfix">
                                 <label for="album_id" class="form-label">Album ID</label>
-                                <select name="album_name" id="album_id" class="form-input-left">
-
+                                <select name="album_id" id="album_id" class="form-input-left">
+                                    <%
+                                        List<Album> albumList = (List<Album>)request.getAttribute("listAlbum");
+                                    %>
+                                    <%
+                                        for(Album a : albumList){
+                                    %>
+                                            <option value="<%=a.getAlbumId()%>">
+                                                <%=a.getAlbumName()%>
+                                            </option>
+                                    <%
+                                        }
+                                    %>
                                 </select>
+                            </div>
+                            <div class="form-row">
+                                <input type="submit" value="Get Photo" class="form-button form-button-blue"/>
                             </div>
                         </form>
                     </div>
+                </div>
+
+                <div class="left-container-content clearfix" id="left-container-content-photos-card">
+                    <%
+                        List<Photo> photosForAlbum = (List<Photo>)request.getAttribute("photoList");
+                    %>
+                    <%
+                        if(photosForAlbum != null){
+                    %>
+                            <%
+                                for(Photo p  : photosForAlbum){
+                            %>
+                                    <div class="card">
+                                        <span class="card-delete" onclick="deletePhoto('<%=p.getPhotoId()%>')">Delete</span>
+                                        <h3 class="card-title title">
+                                            <%=p.getPhotoName()%>
+                                        </h3>
+                                        <img src="<%=p.getPhotoUrl()%>" class="card-image" alt="no image"/>
+                                        <div class="card-content">
+                                            <div class="card-content-desc">
+                                                Photo ID : <%=p.getPhotoId()%>
+                                            </div>
+                                            <div class="card-content-desc">
+                                                Photo Name : <%=p.getPhotoName()%>
+                                            </div>
+                                        </div>
+                                    </div>
+                            <%
+                                }
+                            %>
+                    <%
+                        }
+                    %>
                 </div>
             </div>
 

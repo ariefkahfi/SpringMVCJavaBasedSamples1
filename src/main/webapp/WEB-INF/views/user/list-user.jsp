@@ -42,6 +42,7 @@
                         <tr>
                             <td>User's ID</td>
                             <td>User's Name</td>
+                            <td>Delete</td>
                         </tr>
                         <%
                             List<User> userList= (List<User>)request.getAttribute("listUser");
@@ -52,6 +53,7 @@
                             <tr>
                                 <td><%=u.getUserId()%></td>
                                 <td><%=u.getUserName()%></td>
+                                <td><a href="<%=request.getContextPath()%>/user/remove-user/<%=u.getUserId()%>">Delete</a></td>
                             </tr>
                         <%
                             }

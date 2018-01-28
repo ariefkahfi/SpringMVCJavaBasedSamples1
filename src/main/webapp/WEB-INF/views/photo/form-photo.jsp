@@ -40,9 +40,9 @@
                                 <input type="text" name="photo_name" id="photo_name" class="form-input form-input-left"/>
                             </div>
 
-                            <div class="form-row clearfix">
+                            <div class="form-row clearfix" id="photo_url_container">
                                 <label for="photo_url" class="form-label">Choose file to upload ....</label>
-                                <input type="file" name="photo_url" class="form-input-left form-input" id="photo_url"/>
+                                <input type="file" name="photo_url" class="form-input-left" id="photo_url"/>
                             </div>
 
                             <div class="form-row clearfix">
@@ -54,7 +54,9 @@
                                         <%
                                             for(Album a : albumList){
                                         %>
-                                                <option value="<%=a.getAlbumId()%>"> <%=a.getAlbumId()%>  || <%=a.getAlbumName()%></option>
+                                                <option value="<%=a.getAlbumId()%>">
+                                                    <%=a.getAlbumId()%>  || <%=a.getAlbumName()%> || <%=a.getUser().getUserName()%>
+                                                </option>
                                         <%
                                             }
                                         %>

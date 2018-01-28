@@ -1,25 +1,26 @@
 @media screen and (max-width : 960px){
-    body{
-        background-color: dodgerblue;
-    }
+    /*body{*/
+        /*background-color: dodgerblue;*/
+    /*}*/
 }
 
 @media screen and (max-width: 860px){
-    body{
-        background-color: crimson;
-    }
+    /*body{*/
+        /*background-color: crimson;*/
+    /*}*/
     .util-card-width{
 
     }
 }
 
 @media screen and (max-width : 768px){
-    body{
-        background-color: yellowgreen;
+    /*body{*/
+        /*background-color: yellowgreen;*/
+    /*}*/
+    .card {
+        margin : 2px;
     }
-    .card .floating-left{
-        float: none;
-    }
+
     .util-card-width{
         width: auto;
     }
@@ -34,8 +35,23 @@
 }
 
 @media screen and (max-width : 648px){
-    body{
-        background-color: sienna;
+    /*body{*/
+        /*background-color: sienna;*/
+    /*}*/
+    .card{
+        float: none;
+        margin : 1px;
+        width: 100%;
+    }
+    .card-delete{
+        padding : 6.5px;
+    }
+    .card-title{
+        padding : 5px;
+    }
+    #left-container-content-photos-card{
+        padding-left : 1px;
+        padding-right: 3px;
     }
     #left-top-navbar-item-container{
         display: block;
@@ -71,8 +87,11 @@
 
 
 @media screen and (max-width : 500px){
-    body{
-        background-color: dimgray;
+    /*body{*/
+        /*background-color: dimgray;*/
+    /*}*/
+    #photo_url{
+        /*width: 100%;*/
     }
     .form-row{
         margin : 8px;

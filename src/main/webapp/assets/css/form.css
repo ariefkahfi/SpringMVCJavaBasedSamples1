@@ -4,8 +4,7 @@
     border-radius: 3px;
 }
 .form-button:hover{
-    color: unset;
-    background-color: unset;
+    color: white;
 }
 .form-wrapper{
 
