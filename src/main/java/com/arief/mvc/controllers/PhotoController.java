@@ -6,17 +6,16 @@ import com.arief.mvc.models.Album;
 import com.arief.mvc.models.Photo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.springframework.web.servlet.support.RequestContextUtils;
 
-import javax.servlet.http.Part;
+
+
 import java.io.*;
 import java.util.List;
 import java.util.UUID;
@@ -50,7 +49,12 @@ public class PhotoController {
         String uuid = UUID.randomUUID().toString();
         byte []bytes = multipartFile.getBytes();
 
-        String s1 = multipartFile.getOriginalFilename().substring(multipartFile.getOriginalFilename().lastIndexOf("."),multipartFile.getOriginalFilename().length());
+        String s1 = multipartFile
+                .getOriginalFilename()
+                .substring(
+                        multipartFile.getOriginalFilename().lastIndexOf("."),
+                        multipartFile.getOriginalFilename().length()
+                );
         String finalFilePath = uuid + s1;
 
         File file = new File("/usr/local/apache/uploads/"+finalFilePath);
@@ -71,6 +75,13 @@ public class PhotoController {
     }
     @RequestMapping("/list-photo")
     public String listPhotoView(){
+        return "photo/list-photo";
+    }
+
+    @RequestMapping("/list-photo/album")
+    public String photoListForAlbum(@RequestParam(value = "album_id",required = false)String s, Model m){
+        List<Photo> photoList = photoService.getPhotosByAlbumId(s);
+        m.addAttribute("photoList",photoList);
         return "photo/list-photo";
     }
 }

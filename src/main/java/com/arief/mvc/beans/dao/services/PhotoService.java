@@ -1,7 +1,10 @@
 package com.arief.mvc.beans.dao.services;
 
+import com.arief.mvc.beans.dao.AlbumDAO;
 import com.arief.mvc.beans.dao.PhotoDAO;
+import com.arief.mvc.models.Album;
 import com.arief.mvc.models.Photo;
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.TransactionStatus;
@@ -16,6 +19,9 @@ public class PhotoService implements GenericService<Photo,Integer>{
 
     @Autowired
     private PhotoDAO photoDAO;
+    @Autowired
+    private AlbumDAO albumDAO;
+
     @Autowired
     private TransactionTemplate transactionTemplate;
 
@@ -40,6 +46,21 @@ public class PhotoService implements GenericService<Photo,Integer>{
         return transactionTemplate.execute(new TransactionCallback<Photo>() {
             public Photo doInTransaction(TransactionStatus transactionStatus) {
                 return photoDAO.getPhoto(integer);
+            }
+        });
+    }
+
+    public List<Photo> getPhotosByAlbumId(final String albumId){
+        return transactionTemplate.execute(new TransactionCallback<List<Photo>>() {
+            public List<Photo> doInTransaction(TransactionStatus transactionStatus) {
+                Album getOne = albumDAO.getAlbum(albumId);
+                if(getOne!=null){
+                    Hibernate.initialize(getOne.getPhotoList());
+                    return getOne.getPhotoList();
+                }else{
+                    return null;
+                }
+
             }
         });
     }

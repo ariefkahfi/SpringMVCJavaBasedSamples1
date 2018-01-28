@@ -1,4 +1,5 @@
-<%--
+<%@ page import="com.arief.mvc.models.User" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: arief
   Date: 28/01/18
@@ -35,7 +36,28 @@
             <%@include file="../../../assets/html/right-container.html"%>
 
             <div class="left-container clearfix">
-                <h2>Ini Halaman List User</h2>
+                <h2 class="left-container-title">List User</h2>
+                <div class="left-container-content">
+                    <table border="2" class="tables">
+                        <tr>
+                            <td>User's ID</td>
+                            <td>User's Name</td>
+                        </tr>
+                        <%
+                            List<User> userList= (List<User>)request.getAttribute("listUser");
+                        %>
+                        <%
+                            for (User u : userList){
+                        %>
+                            <tr>
+                                <td><%=u.getUserId()%></td>
+                                <td><%=u.getUserName()%></td>
+                            </tr>
+                        <%
+                            }
+                        %>
+                    </table>
+                </div>
             </div>
 
         </div>

@@ -39,6 +39,14 @@ body{
 }
 /*card styles*/
 
+
+/*table styles*/
+.tables{
+    width : 100%;
+}
+
+/*table styles*/
+
 /*container styles*/
 .container{
     padding : 5px;
@@ -58,6 +66,7 @@ body{
     background-color: #ECEEEF;
     border-radius: 3px;
     padding : 5px;
+    margin : 2px;
 }
 .left-container-title{
     border-radius: 3px;

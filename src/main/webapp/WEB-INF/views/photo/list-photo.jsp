@@ -28,9 +28,22 @@
             <%@include file="../../../assets/html/right-container.html"%>
 
             <div class="left-container clearfix">
-                <h2>Ini Halaman List Photo</h2>
+                <h2 class="left-container-title">List Photo</h2>
+                <div class="left-container-content">
+                    <div class="form-wrapper">
+                        <form action="${pageContext.servletContext.contextPath}/photo/list-photo/album">
+                            <div class="form-row clearfix">
+                                <label for="album_id" class="form-label">Album ID</label>
+                                <select name="album_name" id="album_id" class="form-input-left">
+
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
 
         </div>
 </body>
+    <script src="${pageContext.servletContext.contextPath}/resources/js/list-photo.js"></script>
 </html>

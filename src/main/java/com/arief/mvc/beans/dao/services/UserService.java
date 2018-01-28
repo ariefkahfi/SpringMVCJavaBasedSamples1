@@ -1,7 +1,9 @@
 package com.arief.mvc.beans.dao.services;
 
 import com.arief.mvc.beans.dao.UserDAO;
+import com.arief.mvc.models.Album;
 import com.arief.mvc.models.User;
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.TransactionStatus;
@@ -40,6 +42,20 @@ public class UserService implements GenericService<User,String>{
         return transactionTemplate.execute(new TransactionCallback<User>() {
             public User doInTransaction(TransactionStatus transactionStatus) {
                 return userDAO.getUser(s);
+            }
+        });
+    }
+
+    public List<Album> getUsersAlbum(final String userId){
+        return transactionTemplate.execute(new TransactionCallback<List<Album>>() {
+            public List<Album> doInTransaction(TransactionStatus transactionStatus) {
+                User getOne = userDAO.getUser(userId);
+                if(getOne !=null){
+                    Hibernate.initialize(getOne.getAlbumList());
+                    return getOne.getAlbumList();
+                }else{
+                    return null;
+                }
             }
         });
     }

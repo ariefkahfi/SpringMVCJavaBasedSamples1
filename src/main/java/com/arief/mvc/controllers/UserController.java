@@ -5,11 +5,13 @@ import com.arief.mvc.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -20,6 +22,10 @@ public class UserController {
     private UserService userService;
 
 
+    @ModelAttribute(value = "listUser")
+    public List<User> userList(){
+        return userService.getAll();
+    }
 
 
     @RequestMapping(value = "/form-user",method = RequestMethod.GET)

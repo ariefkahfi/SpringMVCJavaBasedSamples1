@@ -1,3 +1,6 @@
+<%@ page import="com.arief.mvc.models.User" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.arief.mvc.models.Album" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -28,9 +31,70 @@
             <%@include file="../../../assets/html/right-container.html"%>
 
             <div class="left-container clearfix">
-                <h2>Ini Halaman List Album</h2>
+                <h2 class="left-container-title">List Album</h2>
+
+                <div class="left-container-content">
+
+                    <div class="form-wrapper">
+                        <form action="${pageContext.servletContext.contextPath}/album/list-album/user" method="get">
+                            <div class="form-row clearfix">
+                                <label for="user_id" class="form-label">User ID</label>
+                                <select name="user_id" id="user_id" class="form-input-left">
+                                    <%
+                                        List<User> userList = (List<User>)request.getAttribute("listUser");
+                                    %>
+                                    <%
+                                        for(User u : userList){
+                                    %>
+                                        <option value="<%=u.getUserId()%>">
+                                            <%=u.getUserName()%>
+                                        </option>
+                                    <%
+                                        }
+                                    %>
+                                </select>
+                            </div>
+                            <div class="form-row clearfix">
+                                <input type="submit" value="Get album"/>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+                <div class="left-container-content">
+
+                    <%
+                        List<Album> usersAlbum = (List<Album>)request.getAttribute("usersAlbum");
+                    %>
+                    <%
+                        if(usersAlbum != null){
+                    %>
+                        <button class="form-button" onclick="clearTable()">Clear table</button>
+                        <table border="2" class="tables">
+                            <tr>
+                                <td>Album ID</td>
+                                <td>Album Name</td>
+                            </tr>
+                        <%
+                            for (Album a : usersAlbum){
+                        %>
+                            <tr>
+                                <td><%=a.getAlbumId()%></td>
+                                <td><%=a.getAlbumName()%></td>
+                            </tr>
+                        <%
+                            }
+                        %>
+                        </table>
+                    <%
+                        }
+                    %>
+                </div>
+
             </div>
 
         </div>
 </body>
+    <script src="${pageContext.servletContext.contextPath}/resources/js/list-album.js"></script>
 </html>
