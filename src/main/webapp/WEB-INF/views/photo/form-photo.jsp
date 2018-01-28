@@ -33,7 +33,7 @@
                 <h2 class="left-container-title">Ini Halaman Form Photo</h2>
                 <div class="left-container-content">
                     <div class="form-wrapper">
-                        <form action="${pageContext.servletContext.contextPath}/photo/form-photo" enctype="multipart/form-data" method="POST">
+                        <form action="${pageContext.servletContext.contextPath}/photo/form-photo" enctype="multipart/form-data" method="post">
 
                             <div class="form-row clearfix">
                                 <label for="photo_name" class="form-label">Photo Name</label>
@@ -54,7 +54,7 @@
                                         <%
                                             for(Album a : albumList){
                                         %>
-                                                <option value="<%=a.getAlbumId()%>"><%=a.getAlbumName()%></option>
+                                                <option value="<%=a.getAlbumId()%>"> <%=a.getAlbumId()%>  || <%=a.getAlbumName()%></option>
                                         <%
                                             }
                                         %>

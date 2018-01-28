@@ -13,11 +13,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
-import java.io.File;
-import java.io.IOException;
+import javax.servlet.http.Part;
+import java.io.*;
 import java.util.List;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/photo")
@@ -45,16 +47,23 @@ public class PhotoController {
                                 @RequestParam("album_photo_id")String albumPhotoId,
                                 WebRequest webRequest) throws IOException {
 
-        System.out.println(multipartFile.getSize());
-        System.out.println(multipartFile.getOriginalFilename());
+        String uuid = UUID.randomUUID().toString();
+        byte []bytes = multipartFile.getBytes();
 
-        multipartFile.transferTo(new File(multipartFile.getOriginalFilename()));
+        String s1 = multipartFile.getOriginalFilename().substring(multipartFile.getOriginalFilename().lastIndexOf("."),multipartFile.getOriginalFilename().length());
+        String finalFilePath = uuid + s1;
+
+        File file = new File("/usr/local/apache/uploads/"+finalFilePath);
+        FileOutputStream fos = new FileOutputStream(file);
+        fos.write(bytes);
+
+
 
         Album getOne = albumService.getOne(albumPhotoId);
 
         String contextPath = webRequest.getContextPath();
 
-        Photo p = Photo.createPhoto(photoName,"http://localhost:8080"+contextPath+"/images/"+multipartFile.getOriginalFilename(),getOne);
+        Photo p = Photo.createPhoto(photoName,"http://localhost:8080"+contextPath+"/images/"+finalFilePath,getOne);
         photoService.save(p);
 
 

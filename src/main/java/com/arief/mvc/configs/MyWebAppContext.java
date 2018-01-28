@@ -22,14 +22,15 @@ public class MyWebAppContext implements WebMvcConfigurer {
     public CommonsMultipartResolver multipartResolver(){
         CommonsMultipartResolver multipartResolver
                 =new CommonsMultipartResolver();
-        multipartResolver.setMaxUploadSizePerFile(50000000);
+        multipartResolver.setMaxUploadSizePerFile(500000000);
+        multipartResolver.setMaxUploadSize(500000000);
         return multipartResolver;
     }
 
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-//        registry
-//                .addResourceHandler("/resources/**")
-//                .addResourceLocations("/assets/");
+        registry
+                .addResourceHandler("/resources/**")
+                .addResourceLocations("/assets/");
         registry
                 .addResourceHandler("/images/**")
                 .addResourceLocations("file:/usr/local/apache/uploads/");
